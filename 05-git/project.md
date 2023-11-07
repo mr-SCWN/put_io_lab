@@ -50,13 +50,13 @@ Osoba chcąca zakupić produkt na aukcji.
 
 [Sprzedający](#ac1):
 * [UC1](#uc1): Wystawienie produktu na aukcję
-* [UC3](#uc2): Uregulowanie płatności
-* [UC4](#uc3): Przekazanie przedmiotu 
+* [UC3](#uc3): Uregulowanie płatności
+* [UC4](#uc4): Przekazanie przedmiotu 
 
 [Kupujący](#ac2)
 * [UC2](#uc2): Wygranie aukcji
-* [UC3](#uc2): Uregulowanie płatności
-* [UC4](#uc3): Przekazanie przedmiotu
+* [UC3](#uc3): Uregulowanie płatności
+* [UC4](#uc4): Przekazanie przedmiotu
 
 
 ---
@@ -81,17 +81,84 @@ Osoba chcąca zakupić produkt na aukcji.
 ---
 
 <a id="uc2"></a>
-### UC2: ...
+### UC2: Wygranie aukcji
 
-**Aktorzy:** [Sprzedający](#ac1), [Kupujący](#ac2), ...
+**Aktorzy:** [Kupujący](#ac2)
 
 **Scenariusz główny:**
-1. ...
+1. System informuje o rozpoczęciu aukcji
+2. System informuje o aktualnej kwocie za przedmiot
+3. [Kupujący](#ac2) składa ofertę 
+4. System oczekuje na przebicie aktualnej oferty
+5. System akceptuje aktualną ofertę
+6. [Kupujący](#ac2) wygrywa akcje
 
 **Scenariusze alternatywne:** 
 
-1.A. ...
-* 4.A.1. ...
+3.A. [Kupujący](#ac2) składa ofertę niezgodą z [regułą](#br1) 
+* 3.A.1. Oferta zostaje odrzucona
+
+4.A. Oferta zostaje przebita
+* 4.A.1. Powrót do kroku 2.
+
+4.B Oferta nie zostaje przebita
+* 4.B.1. System odczekuje 5 sekund po czym kontynuuje postępowanie
+
+---
+
+<a id="uc3"></a>
+### UC3: Uregulowanie płatności
+
+**Aktorzy:** [Sprzedający](#ac1), [Kupujący](#ac2)
+
+**Scenariusz główny:**
+
+1. [Kupujący](#ac2) zgłasza chęć uregulowania należności
+2. System informuje o sposobach płatności
+3. [Kupujący](#ac2) wybiera sposób płatności
+4. [Kupujący](#ac2) zostaje przekierowany na strone zewnętrznej metody płatności
+5. [Kupujący](#ac2) dokonuje płatności
+6. System weryfikuje status płatności
+7. System informuje o pomyślnym zakończeniu płatności
+
+**Scenariusze alternatywne:** 
+
+3.A. [Kupujący](#ac2) wybiera płatność gotówką
+* 3.A.1. [Kupujący](#ac2) dokonuje płatności przy odbiorze przedmiotu
+5.A [Kupujący](#ac2) nie dokonuje płatności
+* 5.A.1. [Kupujący](#ac2) ma tydzień na uregulowanie płatności w systemie
+* 5.A.2. W przypadku nie dokonania płatności w terminie dodatkowym
+
+---
+
+<a id="uc4"></a>
+### UC4: Przekazanie przedmiotu
+
+**Aktorzy:** [Sprzedający](#ac1), [Kupujący](#ac2)
+
+**Scenariusz główny:**
+1. [Kupujący](#ac2) zgłasza chęc odebrania przedmiotu
+2. System prosi o wybranie terminu odbioru przedmiotu z listy dostępnych terminów
+3. [Kupujący](#ac2) wybiera termin odbioru
+4. System zapisuje podany termin
+5. [Kupujący](#ac2) okazuje się w umówionym terminie
+6. [Kupujący](#ac2) potwierdza swoją tożsamość
+7. [Sprzedający](#ac1) przekazuje przedmiot [Kupującemu](#ac2)
+8. [Sprzedający](#ac1) wprowadza status przekazania przedmiotu
+9. System informuje o zakończonym statusie przekazania przedmiotu
+
+**Scenariusze alternatywne:** 
+
+5.A. [Kupujący](#ac2) nie okazuje się w umówionym terminie
+* 5.A.1. [Kupujący](#ac2) ma 30 dni na ustalenie nowego terminu
+* 5.A.2. [Kupujący](#ac2) zostanie obciążony opłatą za dodatkowe magazynowanie przedmiotu
+
+6.A. [Kupujący](#ac2) nie posiada dokumentu potwierdzającego jego tożsamość
+* 6.A.1. [Kupujący](#ac2) ma 30 dni na dostarczenie takiego dokumentu oraz ustalenie nowego terminu
+* 6.A.2. [Kupujący](#ac2) zostanie obciążony opłatą za dodatkowe magazynowanie przedmiotu
+
+6.B [Kupujący](#ac2) podczas wybierania metody płatności wybrał płatność gotówką
+* 6.B.1 [Kupujący](#ac2) dodatkowo dokonuje płatności
 
 ---
 
