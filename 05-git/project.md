@@ -18,8 +18,8 @@ Specyfikacja wymagań funkcjonalnych w ramach informatyzacji procesu sprzedaży 
 1. [Sprzedający](#ac1) wystawia produkt na aukcję. ([UC1](#uc1))
 2. [Kupujący](#ac2) oferuje kwotę za produkt wyższą od aktualnie najwyższej oferty. ([BR1](#br1))
 3. [Kupujący](#ac2) wygrywa aukcję ([BR2](#br2))
-4. [Kupujący](#ac2) przekazuje należność Sprzedającemu.
-5. [Sprzedający](#ac1) przekazuje produkt Kupującemu.
+4. [Kupujący](#ac2) przekazuje należność [Sprzedającemu](#ac1). ([UC2](#uc2))
+5. [Sprzedający](#ac1) przekazuje produkt [Kupującemu](#ac2). ([UC3](#uc3))
 
 **Scenariusze alternatywne:** 
 
@@ -188,8 +188,10 @@ Aukcję wygrywa ten z [Kupujący](#ac2)ch, który w momencie jej zakończenia (u
 ## Macierz CRUDL
 
 
-| Przypadek użycia                                  | Aukcja | Produkt | ... |
-| ------------------------------------------------- | ------ | ------- | --- |
-| UC1: Wystawienia produktu na aukcję               |    C   |    C    | ... |
-| ???                                               |  ...   |  ...    | ... |
+| Przypadek użycia                                  | Aukcja  | Produkt | ... |
+| ------------------------------------------------- | ------- | ------- | --- |
+| UC1: Wystawienie produktu na aukcję               |    C    |    C    | ... |
+| UC2: Wygranie aukcji                              |    U    |    R    | ... |
+| UC3: Uregulowanie płatności                       |    U    |    R    | ... |
+| UC4: Przekazanie przedmiotu                       |    D    |   U, D  | ... |
 
