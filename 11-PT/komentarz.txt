@@ -1,0 +1,20 @@
+Zadanie 1. Średni czas odpowiedzi i przepustowość dla kodu bazowego:
+	Średni czas odpowiedzi 10490
+	Przepustowość  48.5/min
+
+Usprawnienia:
+- brak obliczania średniej dla wszystkich klientów w każdej iteracji pętli
+- cache'owanie tego przed obliczeniami
+
+Średni czas odpowiedzi i przepustowość dla kodu po modyfikacji:	
+	Średni czas odpowiedzi  238
+	Przepustowość 6.7/sec
+	
+Zadanie 2. 
+Dla kodu bazowego:
+	Throughput 2.0/sec <- zbyt mała wydajność (120 obecnie - 334 wymagane)
+	
+Przepustowość dla 34 drukarek:
+	Throughput 6.1/sec <- spełnione minimum 334 - obecnie 366
+	
+	
